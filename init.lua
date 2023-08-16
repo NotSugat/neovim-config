@@ -4,6 +4,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+-- related to tabs
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -627,8 +631,9 @@ vim.keymap.set('n', "<leader>|", "<cmd>vnew<cr>")
 
 -- -- clipboard
 -- -- copy
-vim.keymap.set("v", '"+y', "<leader>y")
-vim.keymap.set("n", '"+y', "<leader>y")
+-- clipboard
+vim.keymap.set("v", "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>y", [["+y]])
 -- cut
 vim.keymap.set("v", '"+d', "<leader>d")
 vim.keymap.set("n", '"+d', "<leader>d")
