@@ -1,8 +1,15 @@
-return
-{
-	"jose-elias-alvarez/null-ls.nvim",
-	config = function()
-		require("null-ls").setup()
-	end,
-	requires = { "nvim-lua/plenary.nvim" },
-}
+local null_ls = require("null-ls")
+
+null_ls.setup({
+	sources = {
+		-- lua
+		null_ls.builtins.formatting.stylua,
+
+		-- javascript / typescript
+		null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.formatting.prettierd,
+
+		-- python
+		null_ls.builtins.formatting.autopep8,
+	},
+})
