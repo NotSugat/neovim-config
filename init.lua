@@ -28,6 +28,7 @@ require("custom.plugins")
 require("custom.plugins.fugitive")
 require("custom.plugins.null-ls")
 require("custom.plugins.copilot")
+require("custom.plugins.comment")
 
 -- NOTE: Here is where you install your plugins.
 --  You can configure plugins using the `config` key.
