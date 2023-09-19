@@ -49,6 +49,22 @@ require('lazy').setup({
   -- copilot
   { "zbirenbaum/copilot.lua" },
 
+  -- tmux-vim navigator
+  {
+
+    "christoomey/vim-tmux-navigator",
+
+    keys = {
+
+      { "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", desc = "Go to the previous pane" },
+      { "<C-h>",  "<cmd>TmuxNavigateLeft<cr>",     desc = "Got to the left pane" },
+      { "<C-j>",  "<cmd>TmuxNavigateDown<cr>",     desc = "Got to the down pane" },
+      { "<C-k>",  "<cmd>TmuxNavigateUp<cr>",       desc = "Got to the up pane" },
+      { "<C-l>",  "<cmd>TmuxNavigateRight<cr>",    desc = "Got to the right pane" },
+
+    },
+  },
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -572,11 +588,10 @@ vim.keymap.set('n', '<leader>t', '<cmd>Neotree float<cr>')
 vim.keymap.set("n", "<c-j>", '<cmd>ToggleTerm<cr>')
 
 -- navigation among windows
-vim.keymap.set("n", "<leader>h", "<C-w>h") -- navigate left
-vim.keymap.set("n", "<leader>l", "<C-w>l") -- navigate right
-vim.keymap.set("n", "<leader>j", "<C-w>j") -- navigate below
-vim.keymap.set("n", "<leader>k", "<C-w>k") -- navigate above
-
+-- vim.keymap.set("n", "<leader>h", "<C-w>h") -- navigate left
+-- vim.keymap.set("n", "<leader>l", "<C-w>l") -- navigate right
+-- vim.keymap.set("n", "<leader>j", "<C-w>j") -- navigate below
+-- vim.keymap.set("n", "<leader>k", "<C-w>k") -- navigate above
 -- split screen shortcut
 vim.keymap.set('n', "<leader>|", "<cmd>vnew<cr>")
 
@@ -588,3 +603,9 @@ vim.keymap.set("n", "<leader>y", [["+y]])
 -- cut
 vim.keymap.set("v", '"+d', "<leader>d")
 vim.keymap.set("n", '"+d', "<leader>d")
+
+-- -- tmux-vim keymaps
+-- vim.ketmap.set("n", "<leader>h", "<cmd>TmuxNavigateLeft<cr>")
+-- vim.ketmap.set("n", "<leader>l", "<cmd>TmuxNavigateRight<cr>")
+-- vim.ketmap.set("n", "<leader>j", "<cmd>TmuxNavigateDown<cr>")
+-- vim.ketmap.set("n", "<leader>k", "<cmd>TmuxNavigateUp<cr>")
