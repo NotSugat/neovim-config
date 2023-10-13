@@ -31,6 +31,7 @@ require("copilot").setup({
 		yaml = false,
 		markdown = false,
 		help = false,
+		sql = false,
 		gitcommit = false,
 		gitrebase = false,
 		hgcommit = false,
