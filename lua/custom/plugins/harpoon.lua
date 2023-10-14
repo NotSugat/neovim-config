@@ -1,4 +1,6 @@
--- add file
+return { 
+  'ThePrimeagen/harpoon',
+  config = function() 
 vim.keymap.set('n', '<leader>m', function()
 	vim.api.nvim_command('lua require("harpoon.mark").add_file()')
 end)
@@ -32,3 +34,6 @@ end)
 vim.keymap.set('n', '<leader>3', function()
 	vim.api.nvim_command('lua require("harpoon.ui").nav_file(3)')
 end)
+  end,
+  
+}
