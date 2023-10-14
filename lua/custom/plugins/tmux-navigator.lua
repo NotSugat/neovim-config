@@ -1,14 +1,14 @@
-return  {
+return {
 
-    "christoomey/vim-tmux-navigator",
+  "christoomey/vim-tmux-navigator",
 
-    keys = {
+  keys = {
 
-      { "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", desc = "Go to the previous pane" },
-      { "<C-h>",  "<cmd>TmuxNavigateLeft<cr>",     desc = "Got to the left pane" },
-      { "<C-j>",  "<cmd>TmuxNavigateDown<cr>",     desc = "Got to the down pane" },
-      { "<C-k>",  "<cmd>TmuxNavigateUp<cr>",       desc = "Got to the up pane" },
-      { "<C-l>",  "<cmd>TmuxNavigateRight<cr>",    desc = "Got to the right pane" },
+    { "<M-\\>", "<cmd>TmuxNavigatePrevious<cr>", desc = "Go to the previous pane" },
+    { "<M-h>",  "<cmd>TmuxNavigateLeft<cr>",     desc = "Got to the left pane" },
+    { "<M-j>",  "<cmd>TmuxNavigateDown<cr>",     desc = "Got to the down pane" },
+    { "<M-k>",  "<cmd>TmuxNavigateUp<cr>",       desc = "Got to the up pane" },
+    { "<M-l>",  "<cmd>TmuxNavigateRight<cr>",    desc = "Got to the right pane" },
 
-    },
+  },
 }
