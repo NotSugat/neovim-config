@@ -1,13 +1,13 @@
 return {
--- Git related plugins
+  -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
-    -- Detect tabstop and shiftwidth automatically
+  -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-    -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  -- Useful plugin to show you pending keybinds.
+  { 'folke/which-key.nvim',    opts = {} },
 
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
@@ -30,11 +30,15 @@ return {
     },
   },
 
+  -- rust related
+  {
+    "simrat39/rust-tools.nvim",
+  },
 
+  -- amongst your other plugins
+  { 'akinsho/toggleterm.nvim', version = "*", config = true },
 
-
-   -- amongst your other plugins
-    { 'akinsho/toggleterm.nvim', version = "*", config = true }
+  -- silicon
+  'segeljakt/vim-silicon'
 
 }
-
