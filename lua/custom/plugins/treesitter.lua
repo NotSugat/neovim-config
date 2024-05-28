@@ -1,19 +1,15 @@
-return   {
-    -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ':TSUpdate',
+return {
+  -- Highlight, edit, and navigate code
+  'nvim-treesitter/nvim-treesitter',
+  dependencies = {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+  },
+  build = ':TSUpdate',
 
-    config = function()
+  config = function()
     require('nvim-treesitter.configs').setup {
       -- Add languages to be installed here that you want installed for treesitter
       ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
-
-      context_commentstring = {
-        enable = true,
-      },
 
       -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
       auto_install = true,
@@ -74,5 +70,5 @@ return   {
         },
       },
     }
-    end,
-  }
+  end,
+}
