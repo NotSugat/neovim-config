@@ -67,7 +67,7 @@ return {
 		--  If you want to override the default filetypes that your language server will attach to you can
 		--  define the property 'filetypes' to the map in question.
 		local servers = {
-			-- clangd = {},
+		
 			-- gopls = {},
 			-- pyright = {},
 			-- rust_analyzer = {},
@@ -114,15 +114,26 @@ return {
 		})
 
 		mason_lspconfig.setup_handlers({
-			function(server_name)
-				require("lspconfig")[server_name].setup({
-					capabilities = capabilities,
-					on_attach = on_attach,
-					settings = servers[server_name],
-					filetypes = (servers[server_name] or {}).filetypes,
-				})
+		    function(server_name)
+			local server_config = {
+			    capabilities = capabilities,
+			    on_attach = on_attach,
+			    settings = servers[server_name],
+			    filetypes = (servers[server_name] or {}).filetypes,
+			}
+
+
+			require("lspconfig")[server_name].setup(server_config)
+		    end,
+		})
+
+		require("lspconfig").clangd.setup({
+			cmd = { "/run/current-system/sw/bin/clangd" }, 	
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			on_attach = function(client, bufnr)
 			end,
 		})
+
 
 		-- [[ Configure nvim-cmp ]]
 		-- See `:help cmp`
