@@ -13,6 +13,9 @@ vim.o.undofile = true
 
 -- indentation
 vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.smarttab = true
+
 
 -- related to tabwidth
 vim.o.tabstop = 2
