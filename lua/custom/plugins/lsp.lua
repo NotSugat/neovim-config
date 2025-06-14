@@ -3,11 +3,13 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		-- Automatically install LSPs to stdpath for neovim
-		{ "williamboman/mason.nvim", config = true },
+		{ "williamboman/mason.nvim",                  config = true },
 		"williamboman/mason-lspconfig.nvim",
 
+		{ 'WhoIsSethDaniel/mason-tool-installer.nvim' },
+
 		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-		{ "j-hui/fidget.nvim",       tag = "legacy", opts = {} },
+		{ "j-hui/fidget.nvim",                        tag = "legacy", opts = {} },
 
 		-- Additional lua configuration, makes nvim stuff amazing!
 		"folke/neodev.nvim",
@@ -86,19 +88,20 @@ return {
 			html = {
 				filetypes = { "html", "htmldjango", "twig", "hbs" },
 			},
-			pylsp = {
-				pylsp = {
-					plugins = {
-						pyflakes = { enabled = false },
-						pylint = { enabled = false },
-						pycodestyle = {
-							enabled = true,
-							ignore = { "E501" }, -- Example: Ignore line length warnings
-							maxLineLength = 88, -- Set maximum line length
-						},
-					},
-				},
-			},
+			-- pylsp = {
+			-- 	pylsp = {
+			-- 		plugins = {
+			-- 			pyflakes = { enabled = false },
+			-- 			pylint = { enabled = false },
+			-- 			pycodestyle = {
+			-- 				enabled = true,
+			-- 				ignore = { "E501" }, -- Example: Ignore line length warnings
+			-- 				maxLineLength = 88, -- Set maximum line length
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
+			pyright = {},
 			biome = {
 				-- Optional custom configuration
 				filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
@@ -114,6 +117,19 @@ return {
 
 		-- Setup neovim lua configuration
 		require("neodev").setup()
+
+		require("mason-tool-installer").setup(
+			{
+				ensure_installed = {
+					'black',
+					'debugpy',
+					'flake8',
+					'isort',
+					'mypy',
+					'pylint'
+				}
+			}
+		)
 
 		-- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
